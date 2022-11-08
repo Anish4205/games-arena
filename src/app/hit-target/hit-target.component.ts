@@ -18,6 +18,9 @@ export class HitTargetComponent implements OnInit {
   point = 0;
   secondsElapsed = 0;
 
+  timeOutIntervalId: any;
+  targetIntervalId: any
+
   constructor(private messageService: MessageService) { }
 
   ngOnInit(): void {
@@ -29,20 +32,24 @@ export class HitTargetComponent implements OnInit {
     this.point = 0;
     this.secondsElapsed = 0;
     
-    setInterval(() => {
+    this.targetIntervalId = setInterval(() => {
       this.changeTargetPosition();
     }, 500);
     
-    let timerIntervalId = setInterval(() => {
+    this.timeOutIntervalId = setInterval(() => {
       this.secondsElapsed++;
+      if(this.secondsElapsed == 60) {
+        this.timeOutGame();
+      }
     }, 1000);
 
-    let timeoutIntervalId = setInterval(() => {
-      this.messageService.add({severity:'warn', summary:'Time out'});
-      this.started = false;
-      clearInterval(timeoutIntervalId);
-    }, 5000);
+  }
 
+  timeOutGame() {
+    this.messageService.add({severity:'warn', summary:'Time out'});
+    this.started = false;
+    clearInterval(this.timeOutIntervalId);
+    clearInterval(this.targetIntervalId);
   }
 
   changeTargetPosition() {
@@ -58,7 +65,7 @@ export class HitTargetComponent implements OnInit {
       }
     }
 
-    if (this.point == 1) {
+    if (this.point == 10) {
       this.messageService.add({severity:'success', summary:'You win'});
       this.started = false;
     }

@@ -9,6 +9,7 @@ import {TableModule} from 'primeng/table';
 import { HitTargetComponent } from './hit-target/hit-target.component';
 import { ButtonModule } from 'primeng/button';
 import {MessagesModule} from 'primeng/messages';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import {MessagesModule} from 'primeng/messages';
     TableModule,
     ButtonModule,
     MessagesModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule
   ],
   providers: [HttpClientModule],
   bootstrap: [AppComponent]
