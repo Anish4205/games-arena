@@ -1,0 +1,90 @@
+* {
+    box-sizing: border-box;
+  }
+
+.header {
+    text-align: center;
+    background-color: rgba(249, 251, 112, 0.87);
+    padding: 5px;
+    margin: 5px;
+}
+
+.body-div {
+    overflow:auto;
+    
+}
+
+.menu {
+    float: left;
+    width: 20%;
+    text-align: center;
+}
+
+.menu a {
+    display: block;
+    text-align: center;
+    width: 100%;
+    padding: 5px;
+    margin-top: 7px;
+    color: rgba(249, 251, 112, 0.87);
+    background-color: rgba(0, 0, 0, 0.491);
+}
+
+.menu a:hover {
+    background-color: rgb(11, 220, 11);
+}
+
+.main {
+    float: left;
+    width: 60%;
+    padding: 5px;
+    margin-top: 7px;
+    height: 80vh;
+    text-align: center;
+}
+
+.about {
+    float: left;
+    width: 20%;
+    background-color: rgba(246, 248, 180, 0.87);
+    padding: 5px;
+    margin-top: 2px;
+    text-align: center;
+}
+
+@media screen and (max-width: 620px){
+    .menu, .about, .main {
+        width: 100%;
+    }
+
+    .menu {
+        height: 15vh;
+    }
+
+    .about {
+        height: 5vh;
+    }
+}
+
+.loading:after {
+    overflow: hidden;
+    display: inline-block;
+    vertical-align: bottom;
+    -webkit-animation: ellipsis steps(5, end) 1500ms infinite;
+    animation: ellipsis steps(5, end) 1500ms infinite;
+    content: "\2026";
+    /* ascii code for the ellipsis character */
+    width: 0px;
+  }
+  
+  @keyframes ellipsis {
+    to {
+      width: 40px;
+    }
+  }
+  
+  @-webkit-keyframes ellipsis {
+    to {
+      width: 40px;
+    }
+  }

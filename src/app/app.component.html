@@ -1,0 +1,22 @@
+<div class="header">
+  <h2>Games Arena PlayRoom</h2>
+</div>
+
+<div class="body-div">
+  <div class="menu">
+    <a (click)="activeGame(1)">Hit the Target</a>
+    <a (click)="activeGame(2)">Game 2</a>
+    <a (click)="activeGame(3)">Game 3</a>
+  </div>
+  
+  <div class="main">
+    <h4 *ngIf="gameId == 0">Select a game from the menu</h4>
+    <app-hit-target *ngIf="gameId == 1"></app-hit-target>
+  </div>
+  
+  <div class="about">
+    About
+  </div>
+</div>
+
+<div style="background-color:rgba(249, 251, 112, 0.87);text-align:center;padding:10px;margin-top:7px;">© copyright GamesArena.com</div>

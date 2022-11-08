@@ -1,0 +1,28 @@
+<h2>Hit the Target</h2>
+
+<p-messages></p-messages>
+
+<div *ngIf="!started">
+    <p>Rules: Hit the target randomly moving in the box.
+        Score 10 points in 60 seconds to win! </p>
+    <button pButton type="button" label="Start Game"
+            class="p-button-success" (click)="startGame()"></button>
+</div>
+
+<div *ngIf="started">
+    <div>Time Elapsed : {{secondsElapsed}} s</div>
+
+    <div>Score : {{point}}</div>
+
+    <div class="table-box">
+        <table class="table-style">
+            <tr *ngFor="let r of [0, 1, 2]">
+                <td *ngFor="let c of [0, 1, 2]" (click)="onHit(r,c)">
+                        <span *ngIf="r==currentRow && c==currentColumn">X</span>
+                        <span *ngIf="!(r==currentRow && c==currentColumn)"></span>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
